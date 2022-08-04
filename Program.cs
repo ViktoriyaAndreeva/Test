@@ -7,45 +7,38 @@
         {
             Console.WriteLine("Введите количество значений строки");
             int a = Convert.ToInt32(Console.ReadLine());
+            
             Console.WriteLine($"Введите значений строки: {a} ");
-            
-            string[] array = new string [a];
+
+            string[] array = new string[a];
             FillArray(array, a);
-            Console.WriteLine($"Созданный массив:"  + string.Join(",", array) + "");
-            
-                }
+            Console.WriteLine($"Созданный массив:" + string.Join(",", array) + "");
+            CheckArray(array);
+
+            Console.WriteLine($"Массив строк со значениями <=3:" + string.Join(",", CheckArray(array)) + "");
+        }
         public static void FillArray(string[] array, int a)
         {
             for (int i = 0; i < a; i++)
             {
-                Console.WriteLine("Введите строку");
+                Console.WriteLine("Введите элемент строки");
                 string? arraynew = Console.ReadLine();
                 array[i] = arraynew;
             }
         }
-        // }
-        // public static void PrintArray(int[,] array)
-        // {
-        //     for (int i = 0; i < array.GetLength(0); i++)
-        //     {
-        //         for (int j = 0; j < array.GetLength(1); j++)
-        //         {
-        //             Console.Write(array[i, j] + " ");
-        //         }
-        //         Console.WriteLine();
-        //     }
-        // }
-        // public static void ReversArray(int[,] array, int[,] revarray)
-        // {
-        //     for (int i = 0; i < array.GetLength(0); i++)
-        //     {
-        //         for (int j = 0; j < array.GetLength(1); j++)
-        //         {
-        //             revarray[j,i] = array[i,j];
-                                   
-        //         }
-        //     }
-        //     return;
+        public static string[] CheckArray(string[] array)
+        {
+            int j = 0;
+            string[] arraychecked = new string[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Length <= 3)
+                {
+                    arraychecked[j] = array[i];
+                    j++;
+                }
+            }
+            return arraychecked;
         }
-
-    }       
+    }
+}
