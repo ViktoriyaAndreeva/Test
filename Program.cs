@@ -7,15 +7,19 @@
         {
             Console.WriteLine("Введите количество значений строки");
             int a = Convert.ToInt32(Console.ReadLine());
-            
-            Console.WriteLine($"Введите значений строки: {a} ");
-
-            string[] array = new string[a];
-            FillArray(array, a);
-            Console.WriteLine($"Созданный массив:" + string.Join(",", array) + "");
-            CheckArray(array);
-
-            Console.WriteLine($"Массив строк со значениями <=3:" + string.Join(",", CheckArray(array)) + "");
+            if (a == 0)
+            {
+                Console.WriteLine($"Массив пустой");
+            }
+            else
+            {
+                Console.WriteLine($"Введите значение строки: {a} ");
+                string[] array = new string[a];
+                FillArray(array, a);
+                Console.WriteLine($"Созданный массив:" + string.Join("  ", array) + " ");
+                CheckArray(array);
+                Console.WriteLine($"Массив строк со значениями <=3:" + string.Join(",", CheckArray(array)) + "");
+            }
         }
         public static void FillArray(string[] array, int a)
         {
